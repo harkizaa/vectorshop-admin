@@ -667,9 +667,7 @@ app.get("/api/leaderboard", async (req, res) => {
       source: "user",
     }));
 
-    const combinedData = [...tempData, ...userData].sort(
-      (a, b) => b.exp - a.exp
-    );
+    const combinedData = [...tempData, ...userData].sort((a, b) => b.exp - a.exp);
 
     res.json({
       success: true,
@@ -1639,15 +1637,6 @@ app.get("/thank-you.html", (req, res) => {
 // Add with other page routes
 app.get("/allProducts.html", (req, res) => {
   res.sendFile(path.join(publicPath, "allProducts.html"));
-});
-
-// Add these routes before the catch-all route
-app.get("/manifest.json", (req, res) => {
-  res.sendFile(path.join(publicPath, "manifest.json"));
-});
-
-app.get("/sw.js", (req, res) => {
-  res.sendFile(path.join(publicPath, "sw.js"));
 });
 
 // Catch-all route - harus selalu di paling bawah
